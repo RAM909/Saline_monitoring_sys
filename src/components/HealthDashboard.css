@@ -1,0 +1,57 @@
+.health-dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-color: #4ea8e8;
+}
+
+.upper-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.lower-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.health-box {
+    width: 300px;
+    /* Increase the width of the boxes */
+    height: 200px;
+    /* Increase the height of the boxes */
+    padding: 20px;
+    background-image: url();
+    /* Replace 'your-image-url.jpg' with the URL of your background image */
+    background-size: cover;
+    /* Adjust how the background image covers the box */
+    background-position: center;
+    /* Center the background image within the box */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin: 10px;
+}
+
+.health-box:hover {
+    transform: translateY(-5px);
+
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+.data {
+    font-size: 70px;
+    font-weight: bold;
+    color: #007bff;
+}

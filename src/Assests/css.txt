@@ -1,0 +1,126 @@
+.container
+{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 200px;
+    padding-bottom: 30px;
+    width: 600px;
+
+}
+
+.header
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.text
+{
+   color :black ;
+   font-size: 48px;
+   font-weight: 700;
+}
+
+.underline
+{
+    width: 61px;
+    height: 6px;
+    background:black;
+    border-radius: 9px;
+}
+
+.inputs
+{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    margin: auto;
+width: 480px;
+height: 80px;
+background: white;
+border-radius: 6px;
+}
+
+.input img
+{
+    margin: 0px 30;
+}
+ 
+.input input{
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline:none;
+    font-size: 19px; 
+
+}
+
+.lostpassword{
+ padding-left: 62px;
+ margin-top: 27px;
+ color: grey;
+ font-size: 18px;
+}
+
+.lostpassword span{
+    color: blue;
+    cursor: pointer;
+}
+
+.submit-container{
+    display: flex;
+    gap: 30px;
+    margin: 60px auto;
+}
+
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 59px;
+    color: wheat;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+ 
+<div className='container'>
+        <div className="header">
+            <div className="text">Sign Up
+            </div>
+            <div className="underline"></div>
+        </div>
+        <div className="inputs">
+        <div className="input">
+          <img src={user_icon} alt="" />
+          <input type="text" placeholder='Name' />
+        </div>
+        <div className="input">
+           <img src={email_icon} alt="" />
+           <input type="email" placeholder='Email-Id'/>
+        </div>
+        <div className="input">
+           <img src={pass_icon} alt="" />
+           <input type="password" placeholder='Password' />
+        </div>
+        </div>
+        <div className="lostpassword">Lost Password? <span>Click here!</span></div>
+        <div className="submit-container"></div>
+         <div className="submit">Signup</div>
+         <div className="submit">Login</div>
+

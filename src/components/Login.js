@@ -2,37 +2,44 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 import './Login.css';
+const suffix = "hos.med.in";
+const end = "gmail.com";
 
 function Login() {
 
-    const history=useNavigate();
+    const history = useNavigate();
 
-    const [email,setEmail]=useState('')
-    const [password,setPassword]=useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
-    async function submit(e){
+    async function submit(e) {
         e.preventDefault();
 
-        try{
+        try {
 
-            await axios.post("http://localhost:8000/",{
-                email,password
+            await axios.post("http://localhost:8000/", {
+                email, password
             })
-            .then(res=>{
-                if(res.data=="exist"){
-                    history("/Dash",{state:{id:email}})
-                }
-                else if(res.data=="notexist"){
-                    alert("User have not sign up")
-                }
-            })
-            .catch(e=>{
-                alert("wrong details")
-                console.log(e);
-            })
+                .then(res => {
+                    if (res.data == "exist" && email.endsWith(suffix)) {
+                        console.log(email);
+                        history("/Dash", { state: { id: email } })
+                    }
+                    else if (res.data == "exist" && email.endsWith(end)){
+                        history("/Main", { state: { id: email } })
+
+                    }
+                    else if (res.data == "notexist") {
+                        alert("User have not sign up")
+                    }
+                })
+                .catch(e => {
+                    alert("wrong details")
+                    console.log(e);
+                })
 
         }
-        catch(e){
+        catch (e) {
             console.log(e);
 
         }
@@ -46,8 +53,8 @@ function Login() {
             <h1>Login</h1>
 
             <form action="POST">
-                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"  />
-                <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password"  />
+                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
+                <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
                 <input type="submit" onClick={submit} />
 
             </form>

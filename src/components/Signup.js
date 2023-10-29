@@ -23,7 +23,7 @@ function Login() {
                         alert("User already exists")
                     }
                     else if (res.data == "notexist") {
-                        history("/Dash", { state: { id: email } })
+                        history("/Login", { state: { id: email } })
                     }
                 })
                 .catch(e => {

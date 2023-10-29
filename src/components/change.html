@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Continuous Graph</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+</head>
+<body>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        // Initialize an empty dataset
+        var data = {
+            labels: [],
+            datasets: [{
+                label: 'Dynamic Data',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                data: [],
+            }]
+        };
+
+        var config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                    },
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        };
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, config);
+
+        // Function to add new data points and update the chart
+        function updateChart() {
+            var newDataPoint = Math.random() * 100; // Generate random data
+            var currentTime = new Date().toLocaleTimeString();
+
+            // Add new data point to the dataset
+            chart.data.labels.push(currentTime);
+            chart.data.datasets[0].data.push(newDataPoint);
+
+            // Limit the dataset to a maximum number of data points (e.g., 10)
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+
+            // Update the chart
+            chart.update();
+        }
+
+        // Call the updateChart function periodically to update the graph
+        setInterval(updateChart, 1000); // Update every 1 second
+    </script>
+</body>
+</html>

@@ -20,6 +20,7 @@ app.post("/",async(req,res)=>{
         const check=await collection.findOne({email:email})
 
         if(check){
+            console.log(email)
             res.json("exist")
         }
         else{
